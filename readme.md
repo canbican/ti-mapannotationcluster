@@ -1,10 +1,10 @@
 # ti-mapannotationcluster
 
-![screenshot](https://raw.githubusercontent.com/canbican/ti-mapannotationcluster/master/sc.png)
-
 This is a titanium commonjs module for displaying large amounts of markers on the map. Markers that are close to each other are displayed as one annotation and can be unfolded by zooming in. It is also possible to customize clustered markers.
 
 It uses a quadtree approach, so the complexity of clustering is linear. This makes it easy to deal with large amounts of data. The module also takes care of markers that are outside the boundaries of view.
+
+![screenshot](https://raw.githubusercontent.com/canbican/ti-mapannotationcluster/master/sc.png)
 
 ## Quick Start
 
