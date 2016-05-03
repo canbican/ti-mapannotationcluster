@@ -65,4 +65,4 @@ var multipleAnnotationCaller = function(point, annotations) {
 };
 ```
 
-The `point` argument is the object that will be passed to the `createAnnotatio`n function, so you can use all of its properties for modification, and the `annotations` argument is the array of markers that are represented by this annotation.
+The `point` argument is the object that will be passed to the `createAnnotation` function, so you can use all of its properties for modification, and the `annotations` argument is the array of markers that are represented by this annotation.
