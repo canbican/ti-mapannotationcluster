@@ -1,0 +1,36 @@
+{
+  "name": "ti-mapannotationcluster",
+  "version": "1.0.0",
+  "description": "Fast clustering of map annotations",
+  "main": "ti-mapannotationcluster.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canbican/ti-mapannotationcluster.git"
+  },
+  "keywords": [
+    "cluster",
+    "titanium",
+    "map",
+    "alloy",
+    "annotation"
+  ],
+  "author": "Can Bican",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/canbican/ti-mapannotationcluster/issues"
+  },
+  "homepage": "https://github.com/canbican/ti-mapannotationcluster#readme",
+  "titaniumManifest": {
+    "guid": "9e33545e-35ba-0900-77fb-159ddcf19457"
+  }
+}

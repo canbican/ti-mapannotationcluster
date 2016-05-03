@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: TODO
+author: Can Bican
+license: TODO
+copyright: TODO
+
+# these should not be edited
+name: ti-mapannotationcluster
+moduleid: net.bican.mapannotationcluster
+guid: d1ffaf7c-bcb4-4adf-aa71-7d566e8ad0ae
+platform: commonjs
+minsdk: 5.2.2.GA
