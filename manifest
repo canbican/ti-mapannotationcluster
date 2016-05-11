@@ -4,10 +4,10 @@
 #
 version: 1.0.0
 apiversion: 2
-description: TODO
+description: A titanium commonjs module for displaying large amounts of markers on the map
 author: Can Bican
-license: TODO
-copyright: TODO
+license: Apache 2.0
+copyright: 2016, Can Bican
 
 # these should not be edited
 name: ti-mapannotationcluster
