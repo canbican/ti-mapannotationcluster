@@ -1,24 +1,59 @@
+// This module requires ti.map module also. Add it to tiapp.xml before running:
+//
+// <ti:app>
+//   <modules>
+//     <module>ti.map</module>
+//   </modules>
+// </ti:app>
+//
+// NOTE: In order to run this on Android, you need to setup tiapp.xml as described in
+// http://docs.appcelerator.com/platform/latest/#!/api/Modules.Map
+//
+// Basically, you need to add the following to tiapp.xml:
+//
+// <ti:app>
+//     <android xmlns:android="http://schemas.android.com/apk/res/android">
+//         <manifest>
+//             <application>
+//                 <meta-data android:name="com.google.android.maps.v2.API_KEY"
+//                     android:value="PASTE YOUR GOOGLE MAPS API KEY HERE"/>
+//             </application>
+//         </manifest>
+//     </android>
+// </ti:app>
+//
+
 var MAC = require('ti-mapannotationcluster');
 var pts = [];
 var theMap = require('ti.map');
 
+var win = Ti.UI.createWindow();
+var mapView = theMap.createView({
+  mapType : Map.NORMAL_TYPE
+});
+win.add(mapView);
+win.open();
+
 // This is the customization function for single point annotations.
 var singleAnnotationCaller = function(point) {
-  return _.extend(point, {
-    pincolor : mapView.ANNOTATION_GREEN
-  }, {
-    title : point.offset + ": " + point.latitude.toFixed(2) + ","
-        + point.longitude.toFixed(2)
+  return theMap.createAnnotation({
+    pincolor : theMap.ANNOTATION_GREEN,
+    title : point.offset + ": " + point.latitude.toFixed(2) + "," + point.longitude.toFixed(2),
+    latitude : point.latitude,
+    longitude : point.longitude,
   });
+  return point;
 };
 
 // This is the customization function for multiple point annotations.
 var multipleAnnotationCaller = function(point, annotations) {
-  return _.extend(point, {
-    pincolor : mapView.ANNOTATION_PURPLE
-  }, {
+  return theMap.createAnnotation({
+    pincolor : theMap.ANNOTATION_PURPLE,
     title : annotations.length + " more locations around here",
+    latitude : point.latitude,
+    longitude : point.longitude,
   });
+  return point;
 };
 
 // Annotations are filled when a regionChanged event is fired, so that it's
@@ -46,16 +81,16 @@ var regionChanged = function(e) {
 };
 
 var init = function() {
-  // create 2000 random points all around the globe
-  pts = _.times(2000, function(n) {
-    return {
-      offset : n,
+  pts = [];
+  for (var i = 0; i < 2000; i++) {
+    pts.push({
+      offset : i,
       latitude : Math.random() * 180 - 90,
       longitude : Math.random() * 360 - 180,
-    };
-  });
+    });
+  };
   // setup the view
-  $.mapView.addEventListener('regionChanged', regionChanged);
+  mapView.addEventListener('regionChanged', regionChanged);
 };
 
 init();
