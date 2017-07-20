@@ -55,7 +55,7 @@ var regionChanged = function(e) {
 
 ```
 var singleAnnotationCaller = function(point) {
-  return theMap.createAnnotation({
+  return Alloy.Globals.Map.createAnnotation({
     pincolor : theMap.ANNOTATION_GREEN,
     title : point.offset + ": " + point.latitude.toFixed(2) + "," + point.longitude.toFixed(2),
     latitude : point.latitude,
@@ -65,7 +65,7 @@ var singleAnnotationCaller = function(point) {
 };
 
 var multipleAnnotationCaller = function(point, annotations) {
-  return theMap.createAnnotation({
+  return Alloy.Globals.Map.createAnnotation({
     pincolor : theMap.ANNOTATION_PURPLE,
     title : annotations.length + " more locations around here",
     latitude : point.latitude,
