@@ -55,20 +55,24 @@ var regionChanged = function(e) {
 
 ```
 var singleAnnotationCaller = function(point) {
-  return _.extend(point, {
-    pincolor : Alloy.Globals.Map.ANNOTATION_GREEN
-  }, {
-    title : point.offset + ": " + point.latitude.toFixed(2) + ","
-        + point.longitude.toFixed(2)
+  return theMap.createAnnotation({
+    pincolor : theMap.ANNOTATION_GREEN,
+    title : point.offset + ": " + point.latitude.toFixed(2) + "," + point.longitude.toFixed(2),
+    latitude : point.latitude,
+    longitude : point.longitude,
   });
+  return point;
 };
 
 var multipleAnnotationCaller = function(point, annotations) {
-  return _.extend(point, {
-    pincolor : Alloy.Globals.Map.ANNOTATION_PURPLE,
+  return theMap.createAnnotation({
+    pincolor : theMap.ANNOTATION_PURPLE,
     title : annotations.length + " more locations around here",
+    latitude : point.latitude,
+    longitude : point.longitude,
   });
+  return point;
 };
 ```
 
-The `point` argument is the object that will be passed to the `createAnnotation` function, so you can use all of its properties for modification, and the `annotations` argument is the array of markers that are represented by this annotation.
+The `point` argument is the object that points to latitude and longitude of the location, and the `annotations` argument is the array of markers that are represented by this annotation.
